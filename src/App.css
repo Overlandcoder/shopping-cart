@@ -1,0 +1,25 @@
+.shop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+  margin: auto;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  width: 90%;
+}
+
+.product-list img {
+  width: 150px;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
