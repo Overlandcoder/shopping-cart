@@ -1,9 +1,5 @@
 function Cart() {
-  return(
-    <>
-      Your cart
-    </>
-  )
+  return <>Your cart</>;
 }
 
 export default Cart;

@@ -1,33 +1,35 @@
-import Navbar from '../components/Navbar'
-import Shop from '../components/Shop'
-import Cart from '../components/Cart'
+import Navbar from '../components/Navbar';
+import Shop from '../components/Shop';
+import Cart from '../components/Cart';
 
 const routes = [
   {
-    path: "/",
+    path: '/',
     element: (
       <div>
         <Navbar />
         <h2>Home page</h2>
-      </div>)
+      </div>
+    ),
   },
   {
-    path: "/shop",
+    path: '/shop',
     element: (
       <div>
         <Navbar />
         <Shop />
-      </div>)
+      </div>
+    ),
   },
   {
-    path: "/cart",
+    path: '/cart',
     element: (
       <div>
         <Navbar />
         <Cart />
       </div>
-    )
-  }
-]
+    ),
+  },
+];
 
 export default routes;
