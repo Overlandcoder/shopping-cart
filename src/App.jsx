@@ -7,18 +7,28 @@ import ShopContext from './context/ShopContext'
 const router = createBrowserRouter(routes);
 
 function App() {
-  const [cartProducts, setCartProducts] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
 
   const addToCart = (product, quantity) => {
-    setCartProducts(prevCart => [...prevCart, { ...product, quantity }]);
+    setCartItems(prevCart => {
+      const alreadyInCart = prevCart.find(cartProduct => cartProduct.id === product.id)
+      
+      if (alreadyInCart) {
+        return prevCart.map(cartItem => {
+          return cartItem.id === product.id ? { ...product, quantity: cartItem.quantity + quantity } : cartItem
+        })
+      }
+
+      return [...prevCart, { ...product, quantity }]
+    });
   }
 
-  const cartCount = cartProducts.reduce((total, product) => {
+  const cartCount = cartItems.reduce((total, product) => {
     return total + product.quantity;
   }, 0)
 
   return (
-    <ShopContext value={{ cartProducts, addToCart, cartCount }}>
+    <ShopContext value={{ cartItems, addToCart, cartCount }}>
       <RouterProvider router={router} />
     </ShopContext>
   )
