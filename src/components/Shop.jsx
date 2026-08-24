@@ -5,9 +5,17 @@ function Shop() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
+    let ignore = false;
+
     fetch('https://fakestoreapi.com/products?limit=10')
       .then((response) => response.json())
-      .then((data) => setProducts(data));
+      .then((data) => {
+        if (!ignore) setProducts(data);
+      });
+
+      return () => {
+        ignore = true;
+      }
   }, []);
 
   return (
